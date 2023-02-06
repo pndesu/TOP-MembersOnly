@@ -1,1 +1,16 @@
 <h1>Hello World!</h1>
+
+<% Post.all.each do |post| %>
+<ul>
+    <li>
+        <h2><%= post.author %></h2>
+        <p><%= post.title %></p>
+        <p><%= post.content%></p>
+    </li>
+</ul>
+<% end %>
+
+<%= link_to "Login", new_user_session_path %>
+<% if user_signed_in? %>
+<%= link_to "Create new post", new_post_path %>
+<% end %>
